@@ -74,7 +74,6 @@ public struct ChatView<MessageContent: View, InputViewContent: View, MenuAction:
     
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.chatTheme) private var theme
-    @Environment(\.giphyConfig) private var giphyConfig
     
     // MARK: - Parameters
     
