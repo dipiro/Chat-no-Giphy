@@ -27,7 +27,7 @@ struct AttachmentsEditor<InputViewContent: View>: View {
     var messageStyler: (String) -> AttributedString
     var orientationHandler: MediaPickerOrientationHandler
     var mediaPickerSelectionParameters: MediaPickerSelectionParameters?
-    var mediaPickerParameters: MediaPickerParameters?
+//    var mediaPickerParameters: MediaPickerParameters?
     var availableInputs: [AvailableInputType]
     var localization: ChatLocalization
 
@@ -82,7 +82,7 @@ struct AttachmentsEditor<InputViewContent: View>: View {
             }
             .currentFullscreenMedia($currentFullscreenMedia)
             .setSelectionParameters(mediaPickerSelectionParameters)
-            .setMediaPickerParameters(mediaPickerParameters)
+//            .setMediaPickerParameters(mediaPickerParameters)
             .pickerMode($inputViewModel.mediaPickerMode)
             .orientationHandler(orientationHandler)
             .padding(.top)
@@ -100,18 +100,18 @@ struct AttachmentsEditor<InputViewContent: View>: View {
                     inputViewModel.send()
                 }
             }
-            .applyIf(!mediaPickerThemeIsOverridden) {
-                $0.mediaPickerTheme(
-                    main: .init(
-                        pickerText: theme.colors.mainText,
-                        pickerBackground: theme.colors.mainBG,
-                        fullscreenPhotoBackground: theme.colors.mainBG
-                    ),
-                    selection: .init(
-                        accent: theme.colors.sendButtonBackground
-                    )
-                )
-            }
+//            .applyIf(!mediaPickerThemeIsOverridden) {
+//                $0.mediaPickerTheme(
+//                    main: .init(
+//                        pickerText: theme.colors.mainText,
+//                        pickerBackground: theme.colors.mainBG,
+//                        fullscreenPhotoBackground: theme.colors.mainBG
+//                    ),
+//                    selection: .init(
+//                        accent: theme.colors.sendButtonBackground
+//                    )
+//                )
+//            }
         }
     }
 

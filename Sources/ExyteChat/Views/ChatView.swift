@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import GiphyUISDK
+//import GiphyUISDK
 import ExyteMediaPicker
 
-public typealias MediaPickerLiveCameraStyle = LiveCameraCellStyle
+//public typealias MediaPickerLiveCameraStyle = LiveCameraCellStyle
 public typealias MediaPickerSelectionParameters = SelectionParamsHolder
-public typealias MediaPickerParameters = MediaPickerParamsHolder
+//public typealias MediaPickerParameters = MediaPickerParamsHolder
 
 public enum ChatType: CaseIterable, Sendable {
     case conversation // the latest message is at the bottom, new messages appear from the bottom
@@ -120,7 +120,7 @@ public struct ChatView<MessageContent: View, InputViewContent: View, MenuAction:
     var showNetworkConnectionProblem: Bool = false
     var tapAvatarClosure: TapAvatarClosure?
     var mediaPickerSelectionParameters: MediaPickerSelectionParameters?
-    var mediaPickerParameters: MediaPickerParameters?
+//    var mediaPickerParameters: MediaPickerParameters?
     var orientationHandler: MediaPickerOrientationHandler = {_ in}
     var chatTitle: String?
     var paginationHandler: PaginationHandler?
@@ -148,8 +148,8 @@ public struct ChatView<MessageContent: View, InputViewContent: View, MenuAction:
     @State private var inputViewSize = CGSize.zero
     @State private var cellFrames = [String: CGRect]()
 
-    @State private var giphyConfigured = false
-    @State private var selectedMedia: GPHMedia? = nil
+//    @State private var giphyConfigured = false
+//    @State private var selectedMedia: GPHMedia? = nil
     
     public init(messages: [Message],
                 chatType: ChatType = .conversation,
@@ -194,35 +194,35 @@ public struct ChatView<MessageContent: View, InputViewContent: View, MenuAction:
                     .ignoresSafeArea()
                 }
             }
-            .onAppear() {
-                if isGiphyAvailable() {
-                    if let giphyKey = giphyConfig.giphyKey {
-                        if !giphyConfigured {
-                            giphyConfigured = true
-                            Giphy.configure(apiKey: giphyKey)
-                        }
-                    } else {
-                        print("WARNING: giphy key not provided, please pass a key using giphyConfig")
-                    }
-                }
-            }
-            .onChange(of: selectedMedia) {
-                if let giphyMedia = selectedMedia {
-                    inputViewModel.attachments.giphyMedia = giphyMedia
-                    inputViewModel.send()
-                }
-            }
-            .sheet(isPresented: $inputViewModel.showGiphyPicker) {
-                if giphyConfig.giphyKey != nil {
-                    GiphyEditorView(
-                        giphyConfig: giphyConfig,
-                        selectedMedia: $selectedMedia
-                    )
-                    .environmentObject(globalFocusState)
-                } else {
-                    Text("no giphy key found")
-                }
-            }
+//            .onAppear() {
+//                if isGiphyAvailable() {
+//                    if let giphyKey = giphyConfig.giphyKey {
+//                        if !giphyConfigured {
+//                            giphyConfigured = true
+//                            Giphy.configure(apiKey: giphyKey)
+//                        }
+//                    } else {
+//                        print("WARNING: giphy key not provided, please pass a key using giphyConfig")
+//                    }
+//                }
+//            }
+//            .onChange(of: selectedMedia) {
+//                if let giphyMedia = selectedMedia {
+//                    inputViewModel.attachments.giphyMedia = giphyMedia
+//                    inputViewModel.send()
+//                }
+//            }
+//            .sheet(isPresented: $inputViewModel.showGiphyPicker) {
+//                if giphyConfig.giphyKey != nil {
+//                    GiphyEditorView(
+//                        giphyConfig: giphyConfig,
+//                        selectedMedia: $selectedMedia
+//                    )
+//                    .environmentObject(globalFocusState)
+//                } else {
+//                    Text("no giphy key found")
+//                }
+//            }
             .fullScreenCover(isPresented: $inputViewModel.showPicker) {
                 AttachmentsEditor(
                     inputViewModel: inputViewModel,
@@ -231,7 +231,7 @@ public struct ChatView<MessageContent: View, InputViewContent: View, MenuAction:
                     messageStyler: messageStyler,
                     orientationHandler: orientationHandler,
                     mediaPickerSelectionParameters: mediaPickerSelectionParameters,
-                    mediaPickerParameters: mediaPickerParameters,
+//                    mediaPickerParameters: mediaPickerParameters,
                     availableInputs: availableInputs,
                     localization: localization
                 )
@@ -628,11 +628,11 @@ public extension ChatView {
         return view
     }
     
-    func setMediaPickerParameters(_ params: MediaPickerParameters) -> ChatView {
-        var view = self
-        view.mediaPickerParameters = params
-        return view
-    }
+//    func setMediaPickerParameters(_ params: MediaPickerParameters) -> ChatView {
+//        var view = self
+//        view.mediaPickerParameters = params
+//        return view
+//    }
     
     func orientationHandler(orientationHandler: @escaping MediaPickerOrientationHandler) -> ChatView {
         var view = self

@@ -19,21 +19,12 @@
       }
     },
     {
-      "identity" : "giphy-ios-sdk",
+      "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Giphy/giphy-ios-sdk",
+      "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "37f5b1ff6cf8bc4a78c0bc5eb1b814381bac9580",
-        "version" : "2.2.16"
-      }
-    },
-    {
-      "identity" : "libwebp-xcode",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SDWebImage/libwebp-Xcode",
-      "state" : {
-        "revision" : "0d60654eeefd5d7d2bef3835804892c40225e8b2",
-        "version" : "1.5.0"
+        "revision" : "dd3c422ec3088404d6f7e8c905a8318b3de12d6f",
+        "version" : "8.6.0"
       }
     },
     {
